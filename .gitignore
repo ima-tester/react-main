@@ -1,0 +1,9 @@
+.vscode/
+node_modules/
+dist/
+*-junit\.xml
+.hub/templates/*.yaml
+.hub/templates/*.json
+.hub/hub.elaborate
+.hub/hub.state
+.hub/manifests

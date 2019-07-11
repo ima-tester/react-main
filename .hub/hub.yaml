@@ -1,0 +1,116 @@
+version: 1
+kind: application
+meta:
+  name: 'react-es2018:1'
+  brief: S3 hosted React frontend application
+  source:
+    dir: .
+requires:
+  - kubernetes
+components:
+  - name: github-repository
+    source:
+      dir: components/github-repository
+  - name: s3
+    source:
+      dir: components/s3-website
+  - name: jenkins-iam-role
+    source:
+      dir: components/jenkins-iam-role
+outputs:
+  - name: application.name
+    value: '${application.name}'
+  - name: application.namespace
+    value: '${application.namespace}'
+  - name: application.theme
+  - name: application.fqdn
+    value: '${application.ingress.host}'
+  - name: application.path
+    value: '${component.s3website.path}'
+  - name: application.url
+    value: '${application.protocol}://${application.ingress.host}/${application.path}'
+  - name: application.jenkins.pipeline.url
+    value: >-
+      ${component.jenkins.url}/job/${application.name}/job/${application.pipeline.name}-${application.name}
+  - name: application.git.remote
+    value: '${component.git.remote}'
+  - name: application.git.user
+    value: '${component.git.organization}'
+  - name: application.git.kind
+    values: '${application.git.kind}'
+  - name: application.bucket
+    value: '${component.s3website.bucket}'
+  - name: application.endpoint
+    value: '${component.s3website.endpoint}'
+templates:
+  files:
+    - templates/*.template
+parameters:
+  - name: application.name
+    value: react-app-next
+  - name: application.description
+    value: React application
+  - name: application.namespace
+    value: cool
+  - name: application.replicas
+    value: 1
+  - name: application.version
+    value: latest
+  - name: application.state.file
+    fromEnv: APP_STATE_FILE
+  - name: application.protocol
+    value: http
+  - name: application.ingress.host
+    value: '${component.s3website.name}.${dns.domain}'
+  - name: application.bucket
+    value: '${component.s3website.bucket}'
+  - name: application.theme
+  - name: application.pipeline.name
+    value: main
+  - name: component.ingress.protocol
+  - name: component.ingress.fqdn
+  - name: component.jenkins.url
+  - name: dns.domain
+    env: DOMAIN_NAME
+  - name: cloud.region
+  - name: terraform.bucket.name
+  - name: terraform.bucket.region
+  - name: application.git.kind
+    value: github
+  - name: component.github.token
+    fromEnv: COMPONENT_GITHUB_TOKEN
+    default: token
+  - name: component.github.repository.organization
+    kind: user
+  - name: component.github.repository.name
+    value: react-es2018
+  - name: component.github.webhook.name
+    value: github
+  - name: component.github.webhook.events.json
+    value: '["push"]'
+  - name: component.github.repository.description
+    value: '${application.description}'
+  - name: component.git.remote
+  - name: component.git.organization
+    value: '${component.github.repository.organization}'
+  - name: component.git.token
+    value: '${component.github.token}'
+  - name: component.s3website.name
+  - name: component.s3website.baseDomain
+    value: '${dns.domain}'
+  - name: component.s3website.bucket
+  - name: component.s3website.endpoint
+  - name: cloud.role.worker
+  - name: component.jenkins-iam-role.name
+    value: '${dns.domain}/${application.name}'
+  - name: component.jenkins-iam-role.roleArn
+  - name: application.cloud.role
+lifecycle:
+  order:
+    - github-repository
+    - s3
+    - jenkins-iam-role
+  bare: allow
+  verbs:
+    - deploy
+    - undeploy

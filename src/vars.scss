@@ -1,0 +1,23 @@
+$color-khaki: #959c51;
+$color-olive: #7c9c51;
+$color-indy: #51979c;
+$color-navy: #52519c;
+$color-purple: #75519c;
+$color-pink: #9c517d;
+$color-ruby: #9c5151;
+$color-white: #fff;
+
+$theme-color: $color-khaki;
+
+@import 'theme';
+
+$theme-text-color: darken($theme-color, 10);
+$theme-background: $theme-color;
+$theme-navigation-background: darken($theme-color, 3);
+
+$theme-navigation-color: $color-white;
+$theme-navigation-background-hover: lighten($theme-color, 20);
+$theme-active-navigation-background: lighten($theme-color, 10);
+
+$theme-feature-version-color: lighten($theme-color, 30);
+$theme-code-background: rgba($theme-color, .025);

@@ -1,0 +1,19 @@
+@import 'vars';
+
+.feature {
+    & > *:not(:last-child) {
+        margin-right: 7px;
+    }
+}
+
+.feature-link {
+    &,
+    &:hover,
+    &:active {
+        color: inherit;
+    }
+}
+
+.feature-versoin {
+    color: $theme-feature-version-color;
+}

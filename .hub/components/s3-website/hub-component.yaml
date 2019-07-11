@@ -1,0 +1,32 @@
+---
+version: 1
+kind: component
+meta:
+  name: s3-website
+  source:
+    dir: .
+
+parameters:
+- name: terraform.bucket.name
+  env: STATE_BUCKET
+- name: terraform.bucket.region
+  env: STATE_REGION
+- name: component.s3website
+  parameters:
+  - name: name
+    env: TF_VAR_name
+  - name: baseDomain
+    env: TF_VAR_base_domain
+- name: cloud.region
+  kind: user
+  env: AWS_DEFAULT_REGION
+
+outputs:
+- name: component.s3website.domain
+  fromTfVar: domain
+- name: component.s3website.endpoint
+  fromTfVar: endpoint
+- name: component.s3website.bucket
+  fromTfVar: s3_bucket
+- name: component.s3website.originDomain
+  fromTfVar: s3_origin_domain

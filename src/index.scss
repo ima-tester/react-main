@@ -1,0 +1,25 @@
+@import '~@blueprintjs/core/src/blueprint';
+@import 'vars';
+
+html,
+body {
+  font-family: 'Palanquin-Regular', 'sans serif';
+}
+
+* {
+  color: $theme-text-color;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+.flex {
+  display: flex;
+}
+
+@font-face {
+  font-family: 'Palanquin-Regular';
+  src: url('assets/fonts/palanquin-regular.ttf');
+}
+

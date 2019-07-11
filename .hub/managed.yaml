@@ -1,0 +1,48 @@
+parameters:
+  - name: application.description
+    value: >-
+      HTML5/JavaScript application that has been deployed to AWS S3 hosted
+      website with Jenkins CI server
+  - name: application.ingress
+    value: react-main.app.main-aws.sol01.superhub.io
+  - name: application.name
+    value: react-main
+  - name: application.namespace
+    value: applications
+  - name: application.path
+    value: /
+  - name: application.replicas
+    value: '1'
+  - name: component.dex.okta.appId
+    value: 0oa4hang0pJzV08g12p7
+  - name: component.dex.okta.clientId
+    value: 0oa4hang0pJzV08g12p7
+  - name: component.dex.okta.issuer
+    value: 'https://agilestacks.okta.com'
+  - name: component.github.repository.name
+    value: react-main
+  - name: component.github.repository.organization
+    value: stackdemos
+  - name: component.s3website.name
+    value: react-main
+  - name: component.s3website.path
+  - name: date
+    value: July 11 2019
+  - name: deployed-by
+    value: MDD
+outputs:
+  - name: application.description
+  - name: application.ingress
+  - name: application.name
+  - name: application.namespace
+  - name: application.path
+  - name: application.replicas
+  - name: component.dex.okta.appId
+  - name: component.dex.okta.clientId
+  - name: component.dex.okta.issuer
+  - name: component.github.repository.name
+  - name: component.github.repository.organization
+  - name: component.s3website.name
+  - name: component.s3website.path
+  - name: date
+  - name: deployed-by

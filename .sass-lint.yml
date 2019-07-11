@@ -1,0 +1,28 @@
+options:
+  merge-default-rules: true
+  formatter: stylish
+  max-warnings: 0
+files:
+  include: './src/**/*.s+(a|c)ss'
+rules:
+  # disable alphabetic ordering
+  property-sort-order: 0
+
+  # disable identation check, https://github.com/sasstools/sass-lint/pull/849
+  indentation:
+    - 0
+    -
+      size: 4
+
+  # disable, until issues are resolved
+  # https://github.com/sasstools/sass-lint/issues/950
+  # https://github.com/sasstools/sass-lint/issues/575
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
+  placeholder-in-extend: "off"
+  
+
+  space-around-operator:
+    - 2
+    -
+      include: true

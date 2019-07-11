@@ -1,0 +1,15 @@
+@import 'vars';
+
+.code {
+    display: block;
+    padding: 20px;
+    margin: 10px 80px;
+    background: $theme-code-background;
+    white-space: pre;
+}
+
+.code-inline {
+    display: inline;
+    padding: 3px;
+    margin: 3px;
+}

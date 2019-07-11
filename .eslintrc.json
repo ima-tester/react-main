@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "comma-dangle": ["error", "never"],
+    "eqeqeq": ["error", "smart"],
+    "func-style": ["error", "declaration", {"allowArrowFunctions": true}],
+    "indent": ["error", 4],
+    "object-curly-spacing": ["error", "never"],
+    "react/sort-comp": "off",
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-max-props-per-line": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "space-before-function-paren": ["error", {
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "object-curly-newline": "off",
+    "jsx-a11y/anchor-is-valid": ["error", {
+      "components": [],
+      "specialLink": [ "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    "prefer-promise-reject-errors": "off",
+    "function-paren-newline": "off",
+    "eol-last": ["error", "always"]
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  }
+}

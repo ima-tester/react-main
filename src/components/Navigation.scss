@@ -1,0 +1,21 @@
+@import 'vars';
+
+.navigation {
+    font-weight: bold;
+
+    .navigation-item {
+        color: $theme-navigation-color;
+        padding: 6px;
+        border-radius: 3px;
+        margin-right: 5px;
+
+        &:hover {
+            text-decoration: none;
+            background: $theme-navigation-background-hover;
+        }
+    }
+
+    .navigation-item-active {
+        background: $theme-active-navigation-background;
+    }
+}
