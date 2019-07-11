@@ -30,7 +30,7 @@ To init application development just run
 ```bash
 npm install
 ```
-This will install all application dependencies.
+This will install all application dependencies!
 
 ### Development Environment
 By default in development environment application is served on `http://localhost:8081`. Port can be changed in configuration file for development environment `webpack.dev.js`.
